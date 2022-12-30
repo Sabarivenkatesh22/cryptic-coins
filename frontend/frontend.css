@@ -4,3 +4,15 @@
 .round_corners{
     border-radius: 20%;
 }
+.btn-custom{
+    border-radius: 20%;
+    height: 2em;
+    width: 4em;
+    color: white;
+    background-color:black;
+}
+
+.btn-color-dropdown{
+    background-color:white;
+    color: black;
+}
