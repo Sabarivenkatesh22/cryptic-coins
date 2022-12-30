@@ -70,19 +70,19 @@ app.get("/wazirx/results",async (req, res, next) => {
 
 
 //create a coindetail
-app.post("/addcoin", async (req, res, next) => {
-    try {
-        console.log(req.body);
-        const description = req.body.description;
-        const newCoin = await pool
-            .query("INSERT INTO coindetails (description) VALUES($1) RETURNING *",
-                [description])
-        res.json(newCoin);
-    } catch (error) {
-        console.log(error.message);
-    }
-    next();
-})
+// app.post("/addcoin", async (req, res, next) => {
+//     try {
+//         console.log(req.body);
+//         const description = req.body.description;
+//         const newCoin = await pool
+//             .query("INSERT INTO coindetails (description) VALUES($1) RETURNING *",
+//                 [description])
+//         res.json(newCoin);
+//     } catch (error) {
+//         console.log(error.message);
+//     }
+//     next();
+// })
 
 
 //get all coins
@@ -120,29 +120,29 @@ app.get('/coins/:name', async (req, res, next) => {
     next();
 })
 //update a coin
-app.put("/updatecoins/:id", async (req, res, next) => {
-    try {
-        const id = req.params.id;
-        const description = req.body.description;
-        const updateCoin = await pool.query("UPDATE coindetails SET description  = $1 WHERE coin_id = $2",
-            [description, id]);
-        res.json("Coin was updated");
-    } catch (error) {
-        console.log(error.message);
-        res.status(400).json({
-            status: 400,
-            message: error.message
-        });
-    }
-    next();
-})
+// app.put("/updatecoins/:name", async (req, res, next) => {
+//     try {
+//         const id = req.params.name;
+//         const description = req.body.description;
+//         const updateCoin = await pool.query("UPDATE coindetails SET description  = $1 WHERE coin_id = $2",
+//             [description, id]);
+//         res.json("Coin was updated");
+//     } catch (error) {
+//         console.log(error.message);
+//         res.status(400).json({
+//             status: 400,
+//             message: error.message
+//         });
+//     }
+//     next();
+// })
 
 //delete a coin
-app.delete("/coins/delete/:id", async (req, res, next) => {
+app.delete("/coins/delete/:name", async (req, res, next) => {
     try {
-        const id = req.params.id;
-        const deleteCoin = await pool.query("DELETE FROM coindetails WHERE coin_id =$1",
-            [id])
+        const name = req.params.name;
+        const deleteCoin = await pool.query("DELETE FROM coindetails WHERE base_unit =$1",
+            [name])
         res.json("coin deleted");
     } catch (error) {
         console.log(error.message);

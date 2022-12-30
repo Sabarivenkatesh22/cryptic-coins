@@ -7,5 +7,5 @@ CREATE TABLE coindetails (
     buy_price double NOT NULL,
     sell_price double NOT NULL,
     volume double NOT NULL,
-    base_unit double NOT NULL
+    base_unit VARCHAR(255) NOT NULL
 );
