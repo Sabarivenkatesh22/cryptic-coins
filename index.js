@@ -6,7 +6,6 @@ const cors = require("cors");
 dotenv.config({ path: './config.env' })
 const pool = require("./db");
 const { response } = require("express");
-const validationerror = require("./validationError");
 
 
 const app = express();
