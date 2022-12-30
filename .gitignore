@@ -1,8 +1,5 @@
 node_modules
 config.env
-script.js
 trial.js
 validationError.js
 server.js
-frontend.html
-frontend.css
